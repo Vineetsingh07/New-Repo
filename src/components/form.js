@@ -2,7 +2,11 @@ import * as React from "react";
 import { Grid } from "@mui/material";
 
 export default function Form({ addChild }) {
-  const [initialData, setInitialData] = React.useState({ name: "", age: "" });
+  const [initialData, setInitialData] = React.useState({
+    name: "",
+    age: "",
+    price: "",
+  });
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -16,7 +20,7 @@ export default function Form({ addChild }) {
     e.preventDefault();
     setInitialData(initialData);
     addChild(initialData);
-    setInitialData({ name: "", age: "" });
+    setInitialData({ name: "", age: "", price: "" });
   };
 
   return (
