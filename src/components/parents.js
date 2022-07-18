@@ -119,6 +119,7 @@ function Parents() {
           </TableBody>
         </Table>
         {showForm && selectedParent && <Form addChild={addChild} />}
+        {!selectedParent && <p>Please Select Parent</p>}
       </TableContainer>
     </>
   );
