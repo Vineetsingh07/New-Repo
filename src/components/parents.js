@@ -41,7 +41,7 @@ function Parents() {
     let _sum = 0;
     for (let index = 0; index < selectedParent.children.length; index++) {
       const element = selectedParent.children[index];
-      _sum += Number(element.age);
+      _sum += Number(element.price);
     }
     setSum(_sum);
   };
@@ -72,7 +72,11 @@ function Parents() {
               <TableCell align="right">Age</TableCell>
             </TableRow>
             {parentData.map((parent) => (
-              <TableRow key={parent} onClick={() => setSelectedParent(parent)}>
+              <TableRow
+                style={{ cursor: "pointer" }}
+                key={parent}
+                onClick={() => setSelectedParent(parent)}
+              >
                 <TableCell align="right">{parent.name}</TableCell>
                 <TableCell align="right">{parent.age}</TableCell>
               </TableRow>
@@ -83,12 +87,14 @@ function Parents() {
             <TableRow>
               <TableCell align="right">Name</TableCell>
               <TableCell align="right">Age</TableCell>
+              <TableCell align="right">Price</TableCell>
             </TableRow>
             {selectedParent &&
               selectedParent.children.map((child) => (
                 <TableRow key={child}>
                   <TableCell align="right">{child.name}</TableCell>
                   <TableCell align="right">{child.age}</TableCell>
+                  <TableCell align="right">{child.price}</TableCell>
                 </TableRow>
               ))}
 
@@ -112,7 +118,7 @@ function Parents() {
             )}
           </TableBody>
         </Table>
-        {showForm && <Form addChild={addChild} />}
+        {showForm && selectedParent && <Form addChild={addChild} />}
       </TableContainer>
     </>
   );

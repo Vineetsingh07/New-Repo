@@ -22,7 +22,7 @@ export default function Form({ addChild }) {
   return (
     <Grid container spacing={0} align="center">
       <form onSubmit={handleSubmit}>
-        <Grid item xs={6}>
+        <Grid item xs={2}>
           <label>
             Name:
             <input
@@ -33,13 +33,24 @@ export default function Form({ addChild }) {
             />
           </label>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={2}>
           <label>
             Age:
             <input
               type="number"
               name="age"
               value={initialData.age}
+              onChange={handleChange}
+            />
+          </label>
+        </Grid>
+        <Grid item xs={2}>
+          <label>
+            Price:
+            <input
+              type="number"
+              name="price"
+              value={initialData.price}
               onChange={handleChange}
             />
           </label>
